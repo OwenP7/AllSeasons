@@ -15,7 +15,7 @@ export default function Home() {
             src="/MediaSources/PassingJointLogo.jpeg"
             alt="All Seasons lifestyle"
             fill
-            className="object-cover object-[50%_20%] md:object-center"
+            className="object-cover object-[50%_0%] md:object-center"
             priority
           />
           <div className="absolute inset-0 bg-black/40" />
@@ -51,7 +51,7 @@ export default function Home() {
             src="/MediaSources/UpcloseWeed1.jpeg"
             alt="Cannabis flower close up"
             fill
-            className="object-cover object-[50%_20%] md:object-center"
+            className="object-cover object-[50%_0%] md:object-center"
           />
           <div className="absolute inset-0 bg-black/40" />
         </div>
@@ -82,7 +82,7 @@ export default function Home() {
             src="/MediaSources/SmellingPic.jpeg"
             alt="All Seasons lifestyle"
             fill
-            className="object-cover object-[50%_20%] md:object-center"
+            className="object-cover object-[50%_0%] md:object-center"
           />
           <div className="absolute inset-0 bg-black/40" />
         </div>
