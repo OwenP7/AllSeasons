@@ -23,13 +23,13 @@ export default function AgeGate({ active, denied, onAllow, onDeny }: Props) {
     <AnimatePresence>
       {active && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 px-6"
+          className="fixed inset-0 z-50 flex min-h-dvh items-center justify-center bg-black px-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className="flex max-w-xl flex-col items-center gap-8 text-center"
+            className="flex w-full max-w-xl flex-col items-center gap-10 text-center"
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
@@ -38,21 +38,24 @@ export default function AgeGate({ active, denied, onAllow, onDeny }: Props) {
               <Image
                 src="/media/all-seasons-logo.png"
                 alt="All Seasons Farms"
-                width={220}
-                height={80}
+                width={340}
+                height={140}
                 priority
-                className="h-auto w-48"
+                className="h-auto w-72 md:w-80"
               />
-              <p className="text-2xl font-semibold tracking-[0.2em] text-white">
+              <p className="text-2xl font-light tracking-wide text-white">
                 ARE YOU OVER 21 YEARS OF AGE?
               </p>
             </div>
-            <div className="flex gap-4">
-              <button className="btn-primary" onClick={onAllow}>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <button
+                className="inline-flex items-center justify-center rounded-full border border-white px-12 py-4 text-sm font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:bg-white hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                onClick={onAllow}
+              >
                 Yes
               </button>
               <button
-                className="btn-primary border-white/60 text-white/80 hover:text-black"
+                className="inline-flex items-center justify-center rounded-full border border-white px-12 py-4 text-sm font-semibold uppercase tracking-widest text-white transition-all duration-300 hover:bg-white hover:text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 onClick={onDeny}
               >
                 No

@@ -1,81 +1,60 @@
-export type StrainType = "Indica" | "Sativa" | "Hybrid";
+export type StrainType = "INDICA" | "SATIVA" | "HYBRID";
 
 export type Strain = {
   name: string;
   type: StrainType;
-  thc: string;
-  cbd: string;
-  effects: string[];
-  flavors: string[];
+  image: string;
   description: string;
-  tone: string;
 };
 
 export const strains: Strain[] = [
   {
-    name: "Midnight Bloom",
-    type: "Indica",
-    thc: "28%",
-    cbd: "<1%",
-    effects: ["Calming", "Full-body relaxation", "Dreamy"],
-    flavors: ["Berry", "Cocoa", "Earth"],
+    name: "Neon Cookies",
+    type: "HYBRID",
+    image: "/MediaSources/Strain-NeonCookies.PNG",
     description:
-      "A rich, slow-burning indica crafted for evening rituals. Dense trichomes and a velvet finish deliver a luxe, heavy exhale.",
-    tone: "from-[#1f1f1f] via-[#0f0f0f] to-black",
+      "Neon Cookies is a candy-forward hybrid that blends some of the most sought-after genetics in modern cannabis. This vibrant cross brings together the tropical sweetness of Zkittlez with the creamy dessert profile of Lemon Cherry Gelato and the unmistakable potency of Girl Scout Cookies.\n\nThe aroma is loud and layered, bursting with bright citrus candy, sweet berries, and backed by loud gassy finish that can be smelled across the room. Each inhale delivers a smooth, flavorful smoke that lingers on the palate.\n\nNeon Cookies offers a balanced experience that begins with tasty flavor for smokers who prefer a loud taste for their palette but also has an uplifting head high before settling into a relaxed, easygoing body feel.",
   },
   {
-    name: "Sunrise Current",
-    type: "Sativa",
-    thc: "26%",
-    cbd: "<1%",
-    effects: ["Uplifting", "Focused", "Creative"],
-    flavors: ["Citrus zest", "Pine", "Mint"],
+    name: "Lemon Cherry Gelato",
+    type: "INDICA",
+    image: "/MediaSources/Strain-LemonCherryGelato.jpeg",
     description:
-      "Bright, electric, and crisp. Crafted for clarity with a clean finish and a lively terpene profile that cuts through the noise.",
-    tone: "from-[#242323] via-[#111111] to-black",
+      "Lemon Cherry Gelato is an Indica-dominant strain with a sweet and candy like aroma. It has a smooth, creamy texture and a rich, sweet flavor. The effects are calming and relaxing, making it a great choice for those looking for relief from stress and anxiety. It's also known to help with pain relief and insomnia. Enjoy the sweet and candy flavor of Lemon Cherry Gelato and its calming effects.",
   },
   {
-    name: "Balanced Grain",
-    type: "Hybrid",
-    thc: "27%",
-    cbd: "1%",
-    effects: ["Centered", "Social", "Smooth"],
-    flavors: ["Vanilla", "Spice", "Grape"],
+    name: "Sky Dulce",
+    type: "SATIVA",
+    image: "/MediaSources/Strain-SkyDulce.jpeg",
     description:
-      "A modern hybrid with balanced energy and calm. Smooth texture, layered aromas, and a refined, slow-building lift.",
-    tone: "from-[#1a1a1a] via-[#0d0d0d] to-black",
+      "Sky Dulce is a bright, flavor-packed sativa-leaning hybrid that blends classic West Coast power with modern candy genetics. This unique cross brings together the legendary fuel and lift of Skywalker OG and Sour Diesel with the sweet, terpene-rich profile of Zkittlez and Gelato 41.\n\nThe aroma opens with vibrant citrus and tropical candy notes, layered with hints of creamy gelato and a subtle sour diesel funk that gives it depth. The flavor follows through with smooth, sweet on the inhale and a light gassy finish on the exhale.\n\nSky Dulce delivers an uplifting, clear-headed experience that sparks creativity and energy while keeping the body relaxed and balanced. Flavorful, lively, and easy to enjoy, it's a strain built for daytime sessions and anyone who appreciates loud terpenes with a classic sativa edge.",
   },
   {
-    name: "Glasshouse Gold",
-    type: "Hybrid",
-    thc: "29%",
-    cbd: "<1%",
-    effects: ["Euphoric", "Present", "Creative"],
-    flavors: ["Honey", "Lemon peel", "Gas"],
+    name: "Guava Gas",
+    type: "INDICA",
+    image: "/MediaSources/Strain-GuavaGas.PNG",
     description:
-      "Cultivated under precision lighting for maximal expression. Expect dense structure, high clarity, and a luxe inhale.",
-    tone: "from-[#262626] via-[#141414] to-black",
+      "Guava Gas is a terpene-rich Indica hybrid that blends sweetness with a bold, fuel-driven backbone. This flavorful cross combines the creamy fruit notes of Guava Creamsicle and Gelato 41 with the unmistakable gassy punch.\n\nThe aroma opens with bright tropical guava and sweet citrus candy, layered over smooth vanilla cream and a sharp gas finish. On the palate, Guava Gas delivers a smooth, flavorful smoke where juicy fruit bubble gum and creamy dessert notes meet a lingering fuel exhale.\n\nExpect resin-coated buds and an exotic experience that starts with an uplifting, euphoric buzz before settling into a relaxed, easy body feel. Loud, flavorful, and deeply satisfying, Guava Gas is built for connoisseurs who appreciate sweet terps with a classic gassy edge.",
   },
   {
-    name: "Coastal Resin",
-    type: "Sativa",
-    thc: "25%",
-    cbd: "<1%",
-    effects: ["Bright", "Active", "Clean finish"],
-    flavors: ["Sea salt", "Pine", "Herbal"],
+    name: "Sweet Tooth",
+    type: "HYBRID",
+    image: "/MediaSources/Strain-SweetTooth.JPEG",
     description:
-      "Salt-air sharpness with a polished terpene stack. Built for daytime focus with a crisp, coastal finish.",
-    tone: "from-[#202020] via-[#101010] to-black",
+      "Sweet Tooth is a candy-forward hybrid that lives up to its name, blending rich dessert genetics with bright, sugary candy terpenes. This flavorful cross combines the creamy candy sweetness of White Cherry Gelato with the playful soft candy notes of Bubble Gum Runtz.\n\nThe aroma is loud and inviting, opening with sweet bubblegum and ripe cherry candy layered over smooth vanilla cream and subtle gas. Each inhale delivers a smooth, candy-like smoke with sugary fruit on the front and a creamy gelato finish on the exhale.\n\nSweet Tooth offers a feel-good experience that begins with impressing the palate with candy flavor on the inhale and giving you an uplifting buzz before easing into a calm, relaxed body vibe. Flavor-packed and easy to enjoy, it's a strain made for anyone who appreciates classic candy terps with a modern twist.",
   },
   {
-    name: "Velvet Apex",
-    type: "Indica",
-    thc: "30%",
-    cbd: "<1%",
-    effects: ["Heavy", "Restful", "Serene"],
-    flavors: ["Dark fruit", "Diesel", "Cocoa nib"],
+    name: "Buenas Noches",
+    type: "HYBRID",
+    image: "/MediaSources/Strain-Buenos Noches.jpeg",
     description:
-      "Top-tier indica expression with thick resin rails and a decadent aroma. Designed for deep, unhurried nights.",
-    tone: "from-[#1b1b1b] via-[#0c0c0c] to-black",
+      "Buenas Noches is a smokers delight. This hybrid built from some of the most beloved family of genetics. This flavorful cross blends the deep cookie sweetness of Biscotti and Sunset Sherbet with the bright candy cream profile of Gelato.\n\nThe aroma will draw you in and creamy citrus layered over notes of subtle gas. On the palate, Buenas Noches delivers a smooth, flavorful smoke.\n\nExpect dense, frosty buds and a relaxing experience that starts with a mellow head lift before settling into a calm, easy body feel. Sweet, creamy, and indulgent, Buenas Noches is a perfect strain for those who appreciate rich terpenes for a smooth flavorful smoke and a great high to finish.",
+  },
+  {
+    name: "Papaya Tree",
+    type: "SATIVA",
+    image: "/MediaSources/Strain-PapayaTree.PNG",
+    description:
+      "Papaya Tree is a sativa hybrid that blends tropical fruit sweetness with deep, gassy kush undertones. This unique cross combines the papaya funk and dessert notes of Horchata with the bold grape fuel of Grape Gas Gelato, finished with the earthy strength of Long Valley Royal Kush.\n\nThe aroma opens with ripe tropical papaya and sweet grape candy, and a subtle kushy gas that gives it depth. The flavor carries through with smooth tropical fruit on the inhale, followed by a rich, slightly gassy finish.\n\nPapaya Tree delivers a balanced experience that starts with a light, uplifting head buzz before easing into a calm high that allows you to be energetic. Flavorful and complex, it's a strain made for those who appreciate exotic terpenes with a classic backbone.",
   },
 ];

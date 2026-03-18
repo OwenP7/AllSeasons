@@ -14,9 +14,8 @@ const navItems = [
 ];
 
 const socials = [
-  { href: "https://www.instagram.com", label: "Instagram" },
-  { href: "https://twitter.com", label: "X" },
-  { href: "https://www.youtube.com", label: "YouTube" },
+  { href: "https://www.instagram.com/allseasonsfarms/", label: "Instagram" },
+  { href: "https://x.com/Allseasonsfarms", label: "X" },
 ];
 
 export default function Header() {
@@ -53,19 +52,26 @@ export default function Header() {
               />
             </Link>
           ))}
-          <div className="flex items-center gap-4">
-            {socials.map((social) => (
-              <a
-                key={social.href}
-                href={social.href}
-                aria-label={social.label}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/60 transition hover:text-white"
-              >
-                {social.label}
-              </a>
-            ))}
+          <div className="flex items-center gap-2 text-white/60">
+            <a
+              href="https://www.instagram.com/allseasonsfarms/"
+              aria-label="Instagram"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition hover:text-white"
+            >
+              Instagram
+            </a>
+            <span className="text-white/40">/</span>
+            <a
+              href="https://x.com/Allseasonsfarms"
+              aria-label="X"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition hover:text-white"
+            >
+              X
+            </a>
           </div>
         </nav>
 
@@ -113,19 +119,26 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
-            <div className="mt-2 flex items-center gap-3 text-white/70">
-              {socials.map((social) => (
-                <a
-                  key={social.href}
-                  href={social.href}
-                  aria-label={social.label}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition hover:text-white"
-                >
-                  {social.label}
-                </a>
-              ))}
+            <div className="mt-2 flex items-center gap-2 text-white/70">
+              <a
+                href="https://www.instagram.com/allseasonsfarms/"
+                aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition hover:text-white"
+              >
+                Instagram
+              </a>
+              <span className="text-white/40">/</span>
+              <a
+                href="https://x.com/Allseasonsfarms"
+                aria-label="X"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition hover:text-white"
+              >
+                X
+              </a>
             </div>
           </motion.div>
         )}

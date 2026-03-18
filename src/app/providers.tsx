@@ -2,15 +2,27 @@
 
 import AgeGate from "@/components/AgeGate";
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import Navigation from "@/components/Navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
+
+const AGE_SESSION_KEY = "asf_age_verified_session";
+const AGE_LOCAL_KEY = "asf_age_verified";
 
 export default function Providers({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const [ageVerified, setAgeVerified] = useState(false);
   const [denied, setDenied] = useState(false);
+
+  useEffect(() => {
+    try {
+      const sessionOk = sessionStorage.getItem(AGE_SESSION_KEY) === "true";
+      setAgeVerified(sessionOk);
+    } catch {
+      setAgeVerified(false);
+    }
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = ageVerified ? "auto" : "hidden";
@@ -24,8 +36,22 @@ export default function Providers({ children }: { children: ReactNode }) {
       <AgeGate
         active={!ageVerified}
         denied={denied}
-        onAllow={() => setAgeVerified(true)}
-        onDeny={() => setDenied(true)}
+        onAllow={() => {
+          setDenied(false);
+          setAgeVerified(true);
+          try {
+            sessionStorage.setItem(AGE_SESSION_KEY, "true");
+            localStorage.setItem(AGE_LOCAL_KEY, new Date().toISOString());
+          } catch {
+            // ignore
+          }
+        }}
+        onDeny={() => {
+          setDenied(true);
+          if (typeof window !== "undefined") {
+            window.location.href = "https://www.google.com";
+          }
+        }}
       />
       <div
         className={`min-h-screen bg-black text-white transition-opacity duration-500 ${
@@ -33,7 +59,7 @@ export default function Providers({ children }: { children: ReactNode }) {
         }`}
         aria-hidden={!ageVerified}
       >
-        <Header />
+        <Navigation />
         <AnimatePresence mode="wait">
           <motion.main
             key={pathname}
@@ -41,6 +67,7 @@ export default function Providers({ children }: { children: ReactNode }) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.35, ease: "easeOut" }}
+            className="pt-20"
           >
             {children}
           </motion.main>

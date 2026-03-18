@@ -49,3 +49,29 @@ a {
 .card-surface {
   @apply rounded-xl border border-white/10 bg-white/5 shadow-[0_12px_40px_rgba(0,0,0,0.45)];
 }
+
+.store-card {
+  @apply rounded-xl border border-white/10 bg-[#0a0a0a] shadow-[0_18px_50px_rgba(0,0,0,0.65)];
+}
+
+.store-map {
+  filter: grayscale(1) contrast(1.1) brightness(0.7);
+}
+
+.store-map .leaflet-tile {
+  filter: inherit;
+}
+
+.store-map .leaflet-control-zoom,
+.store-map .leaflet-control-attribution {
+  filter: none;
+}
+
+.store-marker {
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.9), 0 8px 16px rgba(0, 0, 0, 0.85);
+}

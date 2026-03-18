@@ -34,30 +34,23 @@ export default function Footer() {
           <div className="flex flex-col gap-2 text-sm text-white/70">
             <span>info@allseasonsfarms.com</span>
             <span>Los Angeles, CA</span>
-            <div className="flex gap-4 pt-2">
+            <div className="flex items-center gap-2 pt-2 text-sm">
               <a
-                href="https://www.instagram.com"
+                href="https://www.instagram.com/allseasonsfarms/"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-white"
               >
                 Instagram
               </a>
+              <span className="text-white/40">/</span>
               <a
-                href="https://twitter.com"
+                href="https://x.com/Allseasonsfarms"
                 target="_blank"
                 rel="noreferrer"
                 className="hover:text-white"
               >
                 X
-              </a>
-              <a
-                href="https://www.youtube.com"
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-white"
-              >
-                YouTube
               </a>
             </div>
           </div>
