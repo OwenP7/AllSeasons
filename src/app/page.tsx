@@ -11,11 +11,20 @@ export default function Home() {
 
       <section className="relative min-h-[500px] h-[600px] md:h-screen w-full">
         <div className="absolute inset-0">
+          {/* Mobile-specific cropped image */}
+          <Image
+            src="/MediaSources/PasssingJointCropped.png"
+            alt="All Seasons lifestyle"
+            fill
+            className="object-cover md:hidden"
+            priority
+          />
+          {/* Desktop image remains unchanged */}
           <Image
             src="/MediaSources/PassingJointLogo.jpeg"
             alt="All Seasons lifestyle"
             fill
-            className="object-cover object-[50%_0%] md:object-center"
+            className="hidden md:block object-cover"
             priority
           />
           <div className="absolute inset-0 bg-black/40" />
@@ -51,7 +60,7 @@ export default function Home() {
             src="/MediaSources/UpcloseWeed1.jpeg"
             alt="Cannabis flower close up"
             fill
-            className="object-cover object-[50%_0%] md:object-center"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-black/40" />
         </div>
@@ -82,7 +91,7 @@ export default function Home() {
             src="/MediaSources/SmellingPic.jpeg"
             alt="All Seasons lifestyle"
             fill
-            className="object-cover object-[50%_0%] md:object-center"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-black/40" />
         </div>
