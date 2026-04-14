@@ -4,13 +4,18 @@
   --bg: #000000;
   --bg-alt: #111111;
   --text: #ffffff;
-  --muted: #b3b3b3;
+  /* Cool silver — secondary / supporting copy (avoid muddy mid-greys like #808080) */
+  --text-secondary: #a0a0a0;
+  --muted: var(--text-secondary);
   --accent: #d4af37;
+  --footer-link: #949494;
 }
 
 @theme inline {
   --color-background: var(--bg);
   --color-foreground: var(--text);
+  --color-text-secondary: var(--text-secondary);
+  --color-footer-link: var(--footer-link);
   --font-sans: var(--font-inter);
   --font-heading: var(--font-bebas);
 }
@@ -26,6 +31,129 @@ body {
   margin: 0;
   min-height: 100vh;
   scroll-behavior: smooth;
+}
+
+/* Header: luxury editorial nav — uppercase, tight size, wide tracking */
+.nav-label {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.nav-label--mono {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    monospace;
+  font-weight: 500;
+}
+
+/* Section titles (OUR STRAINS, footer columns, etc.) */
+.section-heading {
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Muted links — footer + header nav (silver → white on hover) */
+.footer-link,
+.nav-muted-link {
+  color: var(--footer-link);
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover,
+.nav-muted-link:hover {
+  color: #ffffff;
+}
+
+/* Small UI copy: readable at 11–12px */
+.text-caption {
+  line-height: 1.6;
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+/* Landing: left-edge legibility without darkening full-bleed imagery */
+.landing-smoke-gradient {
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 45%
+  );
+}
+
+/* Same legibility treatment when hero copy sits on the right */
+.landing-smoke-gradient--end {
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 45%
+  );
+}
+
+/* Homepage section body copy — darker gradient, light geometry, editorial rail */
+.landing-copy-panel {
+  position: relative;
+  transform: skewX(-2.25deg);
+  transform-origin: left center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 3px solid rgba(255, 255, 255, 0.22);
+  background: linear-gradient(
+    152deg,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.62) 42%,
+    rgba(0, 0, 0, 0.4) 72%,
+    rgba(12, 12, 12, 0.35) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 14px 44px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+  padding: 1.125rem 1.5rem 1.25rem 1.35rem;
+}
+
+.landing-copy-panel__inner {
+  transform: skewX(2.25deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .landing-copy-panel {
+    transform: none;
+  }
+
+  .landing-copy-panel__inner {
+    transform: none;
+  }
+}
+
+/* Boutique primary CTA — solid white / black type */
+.btn-boutique {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  color: #000000;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.btn-boutique:hover {
+  opacity: 0.92;
+}
+
+.btn-boutique:focus-visible {
+  outline: 2px solid #000000;
+  outline-offset: 3px;
 }
 
 a {
@@ -74,4 +202,55 @@ a {
   background: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.85);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.9), 0 8px 16px rgba(0, 0, 0, 0.85);
+}
+
+/* Strains gallery: subtle white glow + hover (see --strain-glow on .strain-art-core) */
+.strain-art-core {
+  --strain-glow: 255 255 255;
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: scale(1);
+  filter: none;
+}
+
+.strain-art-core--active {
+  transform: scale(1.06);
+  filter: drop-shadow(0 12px 28px rgb(var(--strain-glow) / 0.16))
+    drop-shadow(0 5px 14px rgb(var(--strain-glow) / 0.09));
+}
+
+.strain-action-root {
+  cursor: pointer;
+  transform: scale(1);
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.2s ease-out,
+    filter 0.2s ease-out;
+}
+
+.strain-action-root *,
+.strain-action-root *::before,
+.strain-action-root *::after {
+  cursor: pointer;
+}
+
+.strain-action-root--active {
+  transform: scale(1.03);
+}
+
+.strain-art-modal {
+  --strain-glow: 255 255 255;
+  filter: drop-shadow(0 8px 22px rgb(var(--strain-glow) / 0.1))
+    drop-shadow(0 3px 12px rgb(var(--strain-glow) / 0.05));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .strain-art-core--active {
+    transform: none;
+  }
+
+  .strain-action-root--active {
+    transform: none;
+  }
 }

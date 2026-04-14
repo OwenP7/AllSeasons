@@ -1,4 +1,4 @@
- "use client";
+"use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
@@ -44,7 +44,6 @@ export function HeroVideo() {
         return;
       }
 
-      // Hard cut into the macro framing at the target time
       setIsMacro(true);
     };
 
@@ -110,10 +109,9 @@ export function HeroVideo() {
   return (
     <section
       ref={heroRef}
-      className="relative flex h-screen w-full items-center justify-center overflow-hidden"
+      className="relative h-screen w-full overflow-hidden"
       style={{ backgroundColor: bgColor }}
     >
-      {/* Wide/contain pass */}
       <motion.video
         ref={videoRef}
         src="/MediaSources/UpdatedHero.mp4"
@@ -121,49 +119,62 @@ export function HeroVideo() {
         muted
         loop
         playsInline
-        className="absolute inset-0 h-full w-full bg-black object-contain transition-opacity duration-75"
+        className="absolute inset-0 h-full w-full bg-black object-contain object-center transition-opacity duration-75"
         style={{ y, scale: 1, opacity: isDesktop ? (isMacro ? 0 : 1) : 0 }}
       />
 
-      {/* Macro/cover pass */}
       <motion.video
         src="/MediaSources/UpdatedHero.mp4"
         autoPlay
         muted
         loop
         playsInline
-        className="absolute inset-0 h-full w-full bg-black object-cover transition-opacity duration-75"
+        className="absolute inset-0 h-full w-full bg-black object-cover object-center transition-opacity duration-75"
         style={{ y, scale: 1, opacity: isDesktop ? (isMacro ? 1 : 0) : 1 }}
       />
 
-      <div className="absolute inset-0 bg-black/60 z-10" />
+      <div
+        className="absolute inset-0 z-10 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 90% 75% at 50% 45%, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.82) 100%)",
+        }}
+      />
+      <div className="absolute inset-0 z-10 bg-black/35 pointer-events-none" />
 
-      <div className="relative z-20 mx-auto flex max-w-3xl flex-col items-center gap-6 px-6 text-center">
-        <p className="text-lg text-white/80 md:text-xl">
+      <Link
+        href="/strains"
+        className="absolute inset-0 z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+        aria-label="View strains"
+      />
+
+      <h1
+        className="pointer-events-none absolute right-[5%] top-[75%] z-30 max-w-[min(92vw,52rem)] -translate-y-1/2 text-right font-heading font-semibold tracking-[0.08em] text-white mix-blend-difference sm:max-w-[min(88vw,56rem)]"
+        style={{
+          fontSize: "clamp(0.875rem, 3.2vw, 2.75rem)",
+          lineHeight: 1.05,
+          letterSpacing: "-0.02em",
+        }}
+      >
+        <span className="inline-block whitespace-nowrap text-right">
           Premium California Cannabis
-        </p>
-        <div className="flex gap-4">
-          <a className="btn-primary" href="#strains">
-            Explore Our Strains
-          </a>
-          <Link
-            className="btn-primary border-white/50 text-white/80"
-            href="/stores"
-          >
-            Find Stores
-          </Link>
-        </div>
-      </div>
+        </span>
+      </h1>
 
       <motion.div
-        className="absolute bottom-10 flex flex-col items-center text-white/70 z-20"
+        className="text-caption pointer-events-none absolute bottom-10 left-1/2 z-30 flex -translate-x-1/2 flex-col items-center text-secondary"
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
       >
-        <div className="h-14 w-px bg-white/30" />
-        <span className="text-xs tracking-[0.3em]">SCROLL</span>
+        <div
+          className="h-14 shrink-0"
+          style={{
+            width: 0.5,
+            backgroundColor: "rgba(255, 255, 255, 0.3)",
+          }}
+        />
+        <span className="text-xs leading-[1.6] tracking-[0.3em]">SCROLL</span>
       </motion.div>
     </section>
   );
 }
-

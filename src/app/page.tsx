@@ -1,4 +1,4 @@
- "use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -27,24 +27,28 @@ export default function Home() {
             className="hidden md:block object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <div
+            className="landing-smoke-gradient pointer-events-none absolute inset-0"
+            aria-hidden
+          />
         </div>
 
         <div className="relative h-full max-w-7xl mx-auto px-8 flex items-center">
           <div className="max-w-2xl">
-            <h2 className="text-6xl md:text-7xl font-bold text-white mb-6">
+            <h2 className="mb-6 text-6xl font-black tracking-[-0.02em] text-white md:text-7xl">
               ABOUT US
             </h2>
-            <p className="text-lg md:text-xl text-white/90 leading-relaxed mb-8">
-              All Seasons was built for people who truly care about smoking
-              great flower. We're longtime friends and Los Angeles natives
-              committed to rare genetics, exceptional quality, and craft
-              cultivation that can't be replicated.
-            </p>
-            <Link
-              href="/about"
-              className="inline-flex border-2 border-white text-white px-8 py-3 rounded-md hover:bg-white hover:text-black transition-all duration-300"
-            >
+            <div className="landing-copy-panel mb-8">
+              <div className="landing-copy-panel__inner">
+                <p className="text-lg leading-relaxed text-white/90 md:text-xl">
+                  All Seasons was built for people who truly care about smoking
+                  great flower. We're longtime friends and Los Angeles natives
+                  committed to rare genetics, exceptional quality, and craft
+                  cultivation that can't be replicated.
+                </p>
+              </div>
+            </div>
+            <Link href="/about" className="btn-boutique rounded-sm px-10 py-3.5">
               LEARN MORE
             </Link>
           </div>
@@ -62,22 +66,29 @@ export default function Home() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <div
+            className="landing-smoke-gradient--end pointer-events-none absolute inset-0"
+            aria-hidden
+          />
         </div>
 
-        <div className="relative h-full max-w-7xl mx-auto px-8 flex items-center">
-          <div className="max-w-2xl">
-            <h2 className="text-6xl md:text-7xl font-bold text-white mb-6">
+        <div className="relative mx-auto flex h-full max-w-7xl items-center justify-end px-8">
+          <div className="flex max-w-2xl flex-col">
+            <h2 className="mb-6 text-6xl font-black tracking-[-0.02em] text-white md:text-7xl">
               STRAINS
             </h2>
-            <p className="text-lg md:text-xl text-white/90 leading-relaxed mb-8">
-              Rare genetics. Loud terpenes. Elevated craft. Each strain is
-              hand-selected and cultivated to deliver top-tier cannabis without
-              compromise. From candy-forward hybrids to fuel-driven classics.
-            </p>
+            <div className="landing-copy-panel mb-8">
+              <div className="landing-copy-panel__inner">
+                <p className="text-lg leading-relaxed text-white/90 md:text-xl">
+                  Rare genetics. Loud terpenes. Elevated craft. Each strain is
+                  hand-selected and cultivated to deliver top-tier cannabis without
+                  compromise. From candy-forward hybrids to fuel-driven classics.
+                </p>
+              </div>
+            </div>
             <Link
               href="/strains"
-              className="inline-flex border-2 border-white text-white px-8 py-3 rounded-md hover:bg-white hover:text-black transition-all duration-300"
+              className="btn-boutique self-end rounded-sm px-10 py-3.5"
             >
               VIEW ALL STRAINS
             </Link>
@@ -93,22 +104,29 @@ export default function Home() {
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <div
+            className="landing-smoke-gradient pointer-events-none absolute inset-0"
+            aria-hidden
+          />
         </div>
 
         <div className="relative h-full max-w-7xl mx-auto px-8 flex items-center">
           <div className="max-w-2xl">
-            <h2 className="text-6xl md:text-7xl font-bold text-white mb-6">
+            <h2 className="mb-6 text-6xl font-black tracking-[-0.02em] text-white md:text-7xl">
               STORE LOCATOR
             </h2>
-            <p className="text-lg md:text-xl text-white/90 leading-relaxed mb-8">
-              Find All Seasons at premium dispensaries across California. We
-              partner with top-tier retailers who share our commitment to
-              quality and craft.
-            </p>
+            <div className="landing-copy-panel mb-8">
+              <div className="landing-copy-panel__inner">
+                <p className="text-lg leading-relaxed text-white/90 md:text-xl">
+                  Find All Seasons at premium dispensaries across California. We
+                  partner with top-tier retailers who share our commitment to
+                  quality and craft.
+                </p>
+              </div>
+            </div>
             <Link
               href="/store-locator"
-              className="inline-flex border-2 border-white text-white px-8 py-3 rounded-md hover:bg-white hover:text-black transition-all duration-300"
+              className="btn-boutique rounded-sm px-10 py-3.5"
             >
               FIND STORES
             </Link>
@@ -118,21 +136,29 @@ export default function Home() {
 
       <section className="py-24 bg-black">
         <div className="max-w-2xl mx-auto px-8 text-center">
-          <h3 className="text-4xl font-bold text-white mb-4">STAY UPDATED</h3>
-          <p className="text-lg text-gray-400 mb-8">
+          <h3 className="section-heading mb-4 text-4xl text-white">STAY UPDATED</h3>
+          <p className="text-caption mb-8 text-lg leading-[1.6] text-secondary">
             Get notified about new drops, events, and releases.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:gap-8">
+            <label className="sr-only" htmlFor="newsletter-email">
+              Email address
+            </label>
             <input
+              id="newsletter-email"
               type="email"
               placeholder="your@email.com"
-              className="flex-1 bg-zinc-900 border border-zinc-800 text-white px-6 py-3 rounded-md"
+              autoComplete="email"
+              className="text-caption min-w-0 flex-1 border-0 border-b border-white/35 bg-transparent py-3 text-white placeholder:text-secondary focus:border-white focus:outline-none focus:ring-0"
             />
-            <button className="border-2 border-white text-white px-8 py-3 rounded-md hover:bg-white hover:text-black transition-all duration-300">
+            <button
+              type="button"
+              className="btn-boutique shrink-0 self-start rounded-sm px-10 py-3.5 sm:self-auto"
+            >
               SIGN UP
             </button>
           </div>
-          <p className="text-xs text-gray-500 mt-4">
+          <p className="text-caption mt-4 text-xs leading-[1.6] text-secondary">
             (Email collection coming soon)
           </p>
         </div>

@@ -27,7 +27,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/media/all-seasons-logo.png"
+            src="/MediaSources/UpdatedLogo-2-removebg-preview.png"
             alt="All Seasons Farms"
             width={140}
             height={60}
@@ -35,13 +35,17 @@ export default function Header() {
             priority
           />
         </Link>
-        <nav className="hidden items-center gap-8 text-sm font-semibold uppercase tracking-wide md:flex">
-          {navItems.map((item) => (
+        <nav className="hidden items-center gap-8 md:flex">
+          {navItems.map((item) => {
+            const isStoreLocator = item.label === "Store Locator";
+            return (
             <Link
               key={item.href}
               href={item.href}
-              className={`relative pb-1 transition-colors ${
-                pathname === item.href ? "text-white" : "text-white/70"
+              className={`nav-label relative pb-1 ${
+                isStoreLocator ? "nav-label--mono" : ""
+              } ${
+                pathname === item.href ? "text-white" : "nav-muted-link"
               }`}
             >
               {item.label}
@@ -51,24 +55,25 @@ export default function Header() {
                 }`}
               />
             </Link>
-          ))}
-          <div className="flex items-center gap-2 text-white/60">
+          );
+          })}
+          <div className="nav-label nav-label--mono flex items-center gap-2">
             <a
               href="https://www.instagram.com/allseasonsfarms/"
               aria-label="Instagram"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition hover:text-white"
+              className="nav-muted-link"
             >
               Instagram
             </a>
-            <span className="text-white/40">/</span>
+            <span className="text-[color:var(--footer-link)] opacity-70">/</span>
             <a
               href="https://x.com/Allseasonsfarms"
               aria-label="X"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition hover:text-white"
+              className="nav-muted-link"
             >
               X
             </a>
@@ -103,39 +108,44 @@ export default function Header() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute inset-x-3 top-16 mx-auto flex flex-col gap-4 rounded-2xl border border-white/10 bg-black/90 p-6 text-sm uppercase tracking-wide md:hidden"
+            className="absolute inset-x-3 top-16 mx-auto flex flex-col gap-4 rounded-2xl border border-white/10 bg-black/90 p-6 md:hidden"
           >
-            {navItems.map((item) => (
+            {navItems.map((item) => {
+              const isStoreLocator = item.label === "Store Locator";
+              return (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className={`block rounded-lg px-3 py-2 transition ${
+                className={`nav-label block rounded-lg px-3 py-2 transition-[background-color] ${
+                  isStoreLocator ? "nav-label--mono" : ""
+                } ${
                   pathname === item.href
                     ? "bg-white/10 text-white"
-                    : "text-white/80 hover:bg-white/5"
+                    : "nav-muted-link hover:bg-white/5"
                 }`}
               >
                 {item.label}
               </Link>
-            ))}
-            <div className="mt-2 flex items-center gap-2 text-white/70">
+            );
+            })}
+            <div className="nav-label nav-label--mono mt-2 flex items-center gap-2">
               <a
                 href="https://www.instagram.com/allseasonsfarms/"
                 aria-label="Instagram"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition hover:text-white"
+                className="nav-muted-link"
               >
                 Instagram
               </a>
-              <span className="text-white/40">/</span>
+              <span className="text-[color:var(--footer-link)] opacity-70">/</span>
               <a
                 href="https://x.com/Allseasonsfarms"
                 aria-label="X"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition hover:text-white"
+                className="nav-muted-link"
               >
                 X
               </a>

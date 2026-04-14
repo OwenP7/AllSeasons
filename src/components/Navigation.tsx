@@ -44,7 +44,7 @@ export default function Navigation() {
       <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-6 md:px-8">
         <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/media/all-seasons-logo.png"
+            src="/MediaSources/UpdatedLogo-2-removebg-preview.png"
             alt="All Seasons Farms"
             width={160}
             height={70}
@@ -54,16 +54,18 @@ export default function Navigation() {
         </Link>
 
         <nav className="hidden items-center gap-10 md:flex">
-          <div className="flex items-center gap-8 text-sm uppercase tracking-widest">
+          <div className="flex items-center gap-8">
             {navItems.map((item) => {
               const active = pathname === item.href;
+              const isStoreLocator = item.label === "Store Locator";
               return (
                 <Link
                   key={item.href}
                   href={item.href}
                   className={[
-                    "relative pb-1 text-white/70 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white",
-                    active && "text-white",
+                    "nav-label relative pb-1 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white",
+                    isStoreLocator ? "nav-label--mono" : "",
+                    active ? "text-white" : "nav-muted-link",
                   ]
                     .filter(Boolean)
                     .join(" ")}
@@ -80,23 +82,23 @@ export default function Navigation() {
             })}
           </div>
 
-          <div className="ml-6 flex items-center gap-2 text-sm text-white/60">
+          <div className="nav-label nav-label--mono ml-6 flex items-center gap-2">
             <a
               href="https://www.instagram.com/allseasonsfarms/"
               aria-label="Instagram"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+              className="nav-muted-link focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             >
               Instagram
             </a>
-            <span className="text-white/40">/</span>
+            <span className="text-[color:var(--footer-link)] opacity-70">/</span>
             <a
               href="https://x.com/Allseasonsfarms"
               aria-label="X"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+              className="nav-muted-link focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             >
               X
             </a>
@@ -150,16 +152,20 @@ export default function Navigation() {
               exit={{ x: 40, opacity: 0 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
             >
-              <div className="mt-16 flex flex-col gap-4 text-sm uppercase tracking-widest">
+              <div className="mt-16 flex flex-col gap-4">
                 {navItems.map((item) => {
                   const active = pathname === item.href;
+                  const isStoreLocator = item.label === "Store Locator";
                   return (
                     <Link
                       key={item.href}
                       href={item.href}
                       className={[
-                        "rounded-xl border border-white/10 px-4 py-3 text-white/80 transition hover:border-white/25 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white",
-                        active && "border-white/25 bg-white/5 text-white",
+                        "nav-label rounded-xl border border-white/10 px-4 py-3 transition-[border-color,background-color] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white",
+                        isStoreLocator ? "nav-label--mono" : "",
+                        active
+                          ? "border-white/25 bg-white/5 text-white"
+                          : "nav-muted-link hover:border-white/25",
                       ]
                         .filter(Boolean)
                         .join(" ")}
@@ -170,23 +176,23 @@ export default function Navigation() {
                 })}
               </div>
 
-              <div className="mt-10 flex items-center gap-2 text-sm text-white/70">
+              <div className="nav-label nav-label--mono mt-10 flex items-center gap-2">
                 <a
                   href="https://www.instagram.com/allseasonsfarms/"
                   aria-label="Instagram"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                  className="nav-muted-link focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
                 >
                   Instagram
                 </a>
-                <span className="text-white/40">/</span>
+                <span className="text-[color:var(--footer-link)] opacity-70">/</span>
                 <a
                   href="https://x.com/Allseasonsfarms"
                   aria-label="X"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                  className="nav-muted-link focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
                 >
                   X
                 </a>

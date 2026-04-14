@@ -36,7 +36,7 @@ export default function AgeGate({ active, denied, onAllow, onDeny }: Props) {
           >
             <div className="flex flex-col items-center gap-4">
               <Image
-                src="/media/all-seasons-logo.png"
+                src="/MediaSources/UpdatedLogo-2-removebg-preview.png"
                 alt="All Seasons Farms"
                 width={340}
                 height={140}
@@ -66,7 +66,7 @@ export default function AgeGate({ active, denied, onAllow, onDeny }: Props) {
                 You must be of legal age to enter this site.
               </p>
             ) : (
-              <p className="text-xs text-white/60">
+              <p className="text-caption text-xs leading-[1.6] text-secondary">
                 By entering this site you are agreeing to the Terms of Use and
                 Privacy Policy.
               </p>
