@@ -151,7 +151,7 @@ export function HeroVideo() {
       />
 
       <h1
-        className="pointer-events-none absolute left-1/2 top-1/2 z-30 w-[min(92vw,26rem)] max-w-[min(92vw,52rem)] -translate-x-1/2 -translate-y-1/2 px-4 text-center font-heading font-semibold tracking-[0.08em] text-[clamp(1.875rem,7vw+0.35rem,2.85rem)] text-white/90 mix-blend-normal max-md:[text-shadow:none] md:bottom-auto md:left-auto md:right-[5%] md:top-[75%] md:w-auto md:max-w-[min(92vw,52rem)] md:translate-x-0 md:-translate-y-1/2 md:text-right md:text-[clamp(0.875rem,3.2vw,2.75rem)] md:text-white md:mix-blend-difference"
+        className="pointer-events-none absolute left-1/2 top-1/2 z-30 w-[min(92vw,26rem)] max-w-[min(92vw,52rem)] -translate-x-1/2 -translate-y-1/2 px-4 text-center font-heading font-semibold tracking-[0.08em] text-[clamp(1.875rem,7vw+0.35rem,2.85rem)] text-white/90 mix-blend-difference max-md:[text-shadow:none] md:bottom-auto md:left-auto md:right-[5%] md:top-[75%] md:w-auto md:max-w-[min(92vw,52rem)] md:translate-x-0 md:-translate-y-1/2 md:text-right md:text-[clamp(0.875rem,3.2vw,2.75rem)] md:text-white"
         style={{
           lineHeight: 1.08,
           letterSpacing: "-0.02em",
