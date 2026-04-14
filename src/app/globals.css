@@ -119,6 +119,36 @@ body {
   transform: skewX(2.25deg);
 }
 
+/* Mobile: full-bleed dim (UACTP-style) — text sits on the image, no glass boxes */
+@media (max-width: 767px) {
+  .landing-smoke-gradient,
+  .landing-smoke-gradient--end {
+    background: rgba(0, 0, 0, 0.56);
+  }
+
+  .landing-copy-panel {
+    transform: none;
+    transform-origin: center;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    backdrop-filter: none;
+    padding: 0;
+  }
+
+  .landing-copy-panel__inner {
+    transform: none;
+  }
+
+  .landing-section-title {
+    text-shadow: none;
+  }
+
+  .landing-section-body {
+    text-shadow: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .landing-copy-panel {
     transform: none;

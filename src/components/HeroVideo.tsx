@@ -133,14 +133,16 @@ export function HeroVideo() {
         style={{ y, scale: 1, opacity: isDesktop ? (isMacro ? 1 : 0) : 1 }}
       />
 
+      {/* Desktop: vignette + flat wash; mobile: uniform dim so type reads like editorial overlays */}
       <div
-        className="absolute inset-0 z-10 pointer-events-none"
+        className="absolute inset-0 z-10 hidden pointer-events-none md:block"
         style={{
           background:
             "radial-gradient(ellipse 90% 75% at 50% 45%, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0.82) 100%)",
         }}
       />
-      <div className="absolute inset-0 z-10 bg-black/35 pointer-events-none" />
+      <div className="absolute inset-0 z-10 hidden bg-black/35 pointer-events-none md:block" />
+      <div className="absolute inset-0 z-10 bg-black/50 pointer-events-none md:hidden" aria-hidden />
 
       <Link
         href="/strains"
@@ -149,14 +151,13 @@ export function HeroVideo() {
       />
 
       <h1
-        className="pointer-events-none absolute right-[5%] top-[75%] z-30 max-w-[min(92vw,52rem)] -translate-y-1/2 text-right font-heading font-semibold tracking-[0.08em] text-white mix-blend-difference sm:max-w-[min(88vw,56rem)]"
+        className="pointer-events-none absolute left-1/2 top-1/2 z-30 w-[min(92vw,26rem)] max-w-[min(92vw,52rem)] -translate-x-1/2 -translate-y-1/2 px-4 text-center font-heading font-semibold tracking-[0.08em] text-[clamp(1.875rem,7vw+0.35rem,2.85rem)] text-white/90 mix-blend-normal max-md:[text-shadow:none] md:bottom-auto md:left-auto md:right-[5%] md:top-[75%] md:w-auto md:max-w-[min(92vw,52rem)] md:translate-x-0 md:-translate-y-1/2 md:text-right md:text-[clamp(0.875rem,3.2vw,2.75rem)] md:text-white md:mix-blend-difference"
         style={{
-          fontSize: "clamp(0.875rem, 3.2vw, 2.75rem)",
-          lineHeight: 1.05,
+          lineHeight: 1.08,
           letterSpacing: "-0.02em",
         }}
       >
-        <span className="inline-block whitespace-nowrap text-right">
+        <span className="inline-block max-md:text-balance md:whitespace-nowrap md:text-right">
           Premium California Cannabis
         </span>
       </h1>

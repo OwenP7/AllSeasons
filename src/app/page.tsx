@@ -33,14 +33,14 @@ export default function Home() {
           />
         </div>
 
-        <div className="relative h-full max-w-7xl mx-auto px-8 flex items-center">
-          <div className="max-w-2xl">
-            <h2 className="mb-6 text-6xl font-black tracking-[-0.02em] text-white md:text-7xl">
+        <div className="relative mx-auto flex h-full max-w-7xl items-center justify-center px-8 py-8 md:justify-start md:py-0">
+          <div className="max-w-2xl w-full text-center md:text-left">
+            <h2 className="landing-section-title mb-6 text-6xl font-black tracking-[-0.02em] text-white md:text-7xl">
               ABOUT US
             </h2>
             <div className="landing-copy-panel mb-8">
               <div className="landing-copy-panel__inner">
-                <p className="text-lg leading-relaxed text-white/90 md:text-xl">
+                <p className="landing-section-body text-lg leading-relaxed text-white/90 md:text-xl md:text-white/95">
                   All Seasons was built for people who truly care about smoking
                   great flower. We're longtime friends and Los Angeles natives
                   committed to rare genetics, exceptional quality, and craft
@@ -72,14 +72,14 @@ export default function Home() {
           />
         </div>
 
-        <div className="relative mx-auto flex h-full max-w-7xl items-center justify-end px-8">
-          <div className="flex max-w-2xl flex-col">
-            <h2 className="mb-6 text-6xl font-black tracking-[-0.02em] text-white md:text-7xl">
+        <div className="relative mx-auto flex h-full max-w-7xl items-center justify-center px-8 py-8 md:justify-end md:py-0">
+          <div className="flex max-w-2xl w-full flex-col items-center text-center md:items-end md:text-right">
+            <h2 className="landing-section-title mb-6 text-6xl font-black tracking-[-0.02em] text-white md:text-7xl">
               STRAINS
             </h2>
             <div className="landing-copy-panel mb-8">
               <div className="landing-copy-panel__inner">
-                <p className="text-lg leading-relaxed text-white/90 md:text-xl">
+                <p className="landing-section-body text-lg leading-relaxed text-white/90 md:text-xl md:text-white/95">
                   Rare genetics. Loud terpenes. Elevated craft. Each strain is
                   hand-selected and cultivated to deliver top-tier cannabis without
                   compromise. From candy-forward hybrids to fuel-driven classics.
@@ -88,7 +88,7 @@ export default function Home() {
             </div>
             <Link
               href="/strains"
-              className="btn-boutique self-end rounded-sm px-10 py-3.5"
+              className="btn-boutique self-center rounded-sm px-10 py-3.5 md:self-end"
             >
               VIEW ALL STRAINS
             </Link>
@@ -110,14 +110,14 @@ export default function Home() {
           />
         </div>
 
-        <div className="relative h-full max-w-7xl mx-auto px-8 flex items-center">
-          <div className="max-w-2xl">
-            <h2 className="mb-6 text-6xl font-black tracking-[-0.02em] text-white md:text-7xl">
+        <div className="relative mx-auto flex h-full max-w-7xl items-center justify-center px-8 py-8 md:justify-start md:py-0">
+          <div className="max-w-2xl w-full text-center md:text-left">
+            <h2 className="landing-section-title mb-6 text-6xl font-black tracking-[-0.02em] text-white md:text-7xl">
               STORE LOCATOR
             </h2>
             <div className="landing-copy-panel mb-8">
               <div className="landing-copy-panel__inner">
-                <p className="text-lg leading-relaxed text-white/90 md:text-xl">
+                <p className="landing-section-body text-lg leading-relaxed text-white/90 md:text-xl md:text-white/95">
                   Find All Seasons at premium dispensaries across California. We
                   partner with top-tier retailers who share our commitment to
                   quality and craft.
