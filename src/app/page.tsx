@@ -1,10 +1,65 @@
 "use client";
 
+import { FormEvent, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { HeroVideo } from "@/components/HeroVideo";
 
 export default function Home() {
+  const [email, setEmail] = useState("");
+  const [honeypot, setHoneypot] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [statusMessage, setStatusMessage] = useState("");
+  const [statusType, setStatusType] = useState<"idle" | "success" | "error">(
+    "idle",
+  );
+  const [formStartedAt] = useState(() => Date.now());
+
+  async function handleNewsletterSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (isSubmitting) return;
+
+    const trimmedEmail = email.trim();
+    if (!trimmedEmail) {
+      setStatusType("error");
+      setStatusMessage("Please enter a valid email.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setStatusType("idle");
+    setStatusMessage("");
+
+    try {
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: trimmedEmail,
+          website: honeypot,
+          formStartedAt,
+        }),
+      });
+
+      const data = (await response.json()) as { ok?: boolean; message?: string };
+
+      if (!response.ok || !data.ok) {
+        setStatusType("error");
+        setStatusMessage(data.message ?? "Something went wrong. Try again.");
+        return;
+      }
+
+      setStatusType("success");
+      setStatusMessage("Thanks for signing up. You're on the list.");
+      setEmail("");
+    } catch {
+      setStatusType("error");
+      setStatusMessage("Something went wrong. Try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
   return (
     <>
       <HeroVideo />
@@ -140,26 +195,54 @@ export default function Home() {
           <p className="text-caption mb-8 text-lg leading-[1.6] text-secondary">
             Get notified about new drops, events, and releases.
           </p>
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:gap-8">
+          <form
+            className="flex flex-col gap-6 sm:flex-row sm:items-end sm:gap-8"
+            onSubmit={handleNewsletterSubmit}
+          >
+            <label className="sr-only" htmlFor="newsletter-website">
+              Website
+            </label>
+            <input
+              id="newsletter-website"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              value={honeypot}
+              onChange={(event) => setHoneypot(event.target.value)}
+              className="hidden"
+            />
             <label className="sr-only" htmlFor="newsletter-email">
               Email address
             </label>
             <input
               id="newsletter-email"
               type="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
               placeholder="your@email.com"
               autoComplete="email"
+              required
               className="text-caption min-w-0 flex-1 border-0 border-b border-white/35 bg-transparent py-3 text-white placeholder:text-secondary focus:border-white focus:outline-none focus:ring-0"
             />
             <button
-              type="button"
+              type="submit"
+              disabled={isSubmitting}
               className="btn-boutique shrink-0 self-start rounded-sm px-10 py-3.5 sm:self-auto"
             >
-              SIGN UP
+              {isSubmitting ? "SUBMITTING..." : "SIGN UP"}
             </button>
-          </div>
-          <p className="text-caption mt-4 text-xs leading-[1.6] text-secondary">
-            (Email collection coming soon)
+          </form>
+          <p
+            className={`text-caption mt-4 text-xs leading-[1.6] ${
+              statusType === "error"
+                ? "text-red-300"
+                : statusType === "success"
+                  ? "text-green-300"
+                  : "text-secondary"
+            }`}
+          >
+            {statusMessage || "Get notified about drops, events, and releases."}
           </p>
         </div>
       </section>

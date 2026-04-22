@@ -13,7 +13,7 @@ export const strains: Strain[] = [
     type: "HYBRID",
     image: "/MediaSources/Strain-NeonCookies.PNG",
     description:
-      "Neon Cookies is a candy-forward hybrid that blends some of the most sought-after genetics in modern cannabis. This vibrant cross brings together the tropical sweetness of Zkittlez with the creamy dessert profile of Lemon Cherry Gelato and the unmistakable potency of Girl Scout Cookies.\n\nThe aroma is loud and layered, bursting with bright citrus candy, sweet berries, and backed by loud gassy finish that can be smelled across the room. Each inhale delivers a smooth, flavorful smoke that lingers on the palate.\n\nNeon Cookies offers a balanced experience that begins with tasty flavor for smokers who prefer a loud taste for their palette but also has an uplifting head high before settling into a relaxed, easygoing body feel.",
+      "Neon Cookies is a candy-forward hybrid that blends some of the most sought-after genetics in modern cannabis. This vibrant cross brings together the tropical sweetness of Zkittlez with the creamy dessert profile of Girl Scout Cookies and the unmistakable potency of Animal Cookies.\n\nThe aroma is loud and layered, bursting with bright citrus candy, sweet berries, and backed by loud gassy finish that can be smelled across the room. Each inhale delivers a smooth, flavorful smoke that lingers on the palate.\n\nNeon Cookies offers a balanced experience that begins with tasty flavor for smokers who prefer a loud taste for their palette but also has an uplifting head high before settling into a relaxed, easygoing body feel.",
   },
   {
     name: "Lemon Cherry Gelato",
@@ -48,7 +48,7 @@ export const strains: Strain[] = [
     type: "HYBRID",
     image: "/MediaSources/Strain-Buenos Noches.jpeg",
     description:
-      "Buenas Noches is a smokers delight. This hybrid built from some of the most beloved family of genetics. This flavorful cross blends the deep cookie sweetness of Biscotti and Sunset Sherbet with the bright candy cream profile of Gelato.\n\nThe aroma will draw you in and creamy citrus layered over notes of subtle gas. On the palate, Buenas Noches delivers a smooth, flavorful smoke.\n\nExpect dense, frosty buds and a relaxing experience that starts with a mellow head lift before settling into a calm, easy body feel. Sweet, creamy, and indulgent, Buenas Noches is a perfect strain for those who appreciate rich terpenes for a smooth flavorful smoke and a great high to finish.",
+      "Buenas Noches is a smokers delight. This hybrid built from some of the most beloved family of genetics. This flavorful cross blends the deep cookie sweetness of Biscotti and Sunset Sherbet with the bright candy cream profile of Z41.\n\nThe aroma will draw you in and creamy citrus layered over notes of subtle gas. On the palate, Buenas Noches delivers a smooth, flavorful smoke.\n\nExpect dense, frosty buds and a relaxing experience that starts with a mellow head lift before settling into a calm, easy body feel. Sweet, creamy, and indulgent, Buenas Noches is a perfect strain for those who appreciate rich terpenes for a smooth flavorful smoke and a great high to finish.",
   },
   {
     name: "Papaya Tree",
