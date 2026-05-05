@@ -46,12 +46,7 @@ export default function Providers({ children }: { children: ReactNode }) {
             // ignore
           }
         }}
-        onDeny={() => {
-          setDenied(true);
-          if (typeof window !== "undefined") {
-            window.location.href = "https://www.google.com";
-          }
-        }}
+        onDeny={() => setDenied(true)}
       />
       <div
         className={`min-h-screen bg-black text-white transition-opacity duration-500 ${

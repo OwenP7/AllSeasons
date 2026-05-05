@@ -22,7 +22,7 @@ export default function Footer() {
             <a href="/stores" className="footer-link">
               Stores
             </a>
-            <a href="mailto:info@allseasonsfarms.com" className="footer-link">
+            <a href="mailto:info@all-seasons-farms.com" className="footer-link">
               Contact
             </a>
           </div>
@@ -30,7 +30,7 @@ export default function Footer() {
         <div>
           <p className="section-heading mb-3 text-sm text-white">CONNECT</p>
           <div className="flex flex-col gap-2 text-sm leading-[1.6]">
-            <span className="text-secondary">info@allseasonsfarms.com</span>
+            <span className="text-secondary">info@all-seasons-farms.com</span>
             <span className="text-secondary">Los Angeles, CA</span>
             <div className="nav-label nav-label--mono flex items-center gap-2 pt-2 text-secondary">
               <a

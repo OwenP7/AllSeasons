@@ -62,8 +62,9 @@ export default function AgeGate({ active, denied, onAllow, onDeny }: Props) {
               </button>
             </div>
             {denied ? (
-              <p className="text-sm text-red-200">
-                You must be of legal age to enter this site.
+              <p className="max-w-md text-sm leading-relaxed text-red-200">
+                You can&apos;t access this site. You must be 21 or older to
+                continue.
               </p>
             ) : (
               <p className="text-caption text-xs leading-[1.6] text-secondary">
